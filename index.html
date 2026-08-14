@@ -1,65 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HarriBear</title>
 <style>
-  /* ---------- Theme tokens ---------- */
+  /* ---------- Theme tokens: committed dark forest palette ---------- */
   :root {
-    color-scheme: light;
-    --bg: #f2f4ef;
-    --surface: #fbfcfa;
-    --surface-2: #e9ede5;
-    --ink: #1c241f;
-    --muted: #5b665e;
-    --faint: #8a948b;
-    --line: #d9dfd6;
-    --forest: #1f7a4d;
-    --forest-soft: rgba(31,122,77,.14);
-    --river: #3672c0;
-    --river-soft: rgba(54,114,192,.16);
-    --blaze: #d95d13;
-    --blaze-soft: rgba(217,93,19,.12);
-    --hero-bg: #16211b;
-    --hero-ink: #edf2ec;
-    --hero-muted: #a7b5aa;
-    --hero-line: rgba(237,242,236,.16);
-    --chip-hazard-bg: rgba(217,93,19,.12);
-    --chip-hazard-ink: #a34209;
-    --chip-stop-bg: rgba(31,122,77,.12);
-    --chip-stop-ink: #175e3b;
-    --chip-todo-bg: rgba(54,114,192,.13);
-    --chip-todo-ink: #2a568f;
-    --profile-fill: rgba(31,122,77,.18);
-    --shadow: 0 1px 2px rgba(20,30,24,.06), 0 8px 24px rgba(20,30,24,.06);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --bg: #131a15;
-      --surface: #1b241d;
-      --surface-2: #212c24;
-      --ink: #e7ece6;
-      --muted: #9db0a1;
-      --faint: #75857a;
-      --line: #2c372e;
-      --forest: #37996b;
-      --forest-soft: rgba(55,153,107,.18);
-      --river: #4f88d4;
-      --river-soft: rgba(79,136,212,.20);
-      --blaze: #d3661f;
-      --blaze-soft: rgba(211,102,31,.16);
-      --hero-bg: #10160f;
-      --hero-ink: #edf2ec;
-      --hero-muted: #a7b5aa;
-      --hero-line: rgba(237,242,236,.14);
-      --chip-hazard-bg: rgba(211,102,31,.18);
-      --chip-hazard-ink: #eda05f;
-      --chip-stop-bg: rgba(55,153,107,.18);
-      --chip-stop-ink: #7cc9a0;
-      --chip-todo-bg: rgba(79,136,212,.18);
-      --chip-todo-ink: #94b8e8;
-      --profile-fill: rgba(55,153,107,.22);
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
-    }
-  }
-  :root[data-theme="dark"] {
     color-scheme: dark;
     --bg: #131a15;
     --surface: #1b241d;
@@ -243,9 +190,25 @@
   .svnav button { background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 7px; font-size: 1rem; padding: 5px 14px; cursor: pointer; box-shadow: var(--shadow); }
   .svnav button:hover { background: var(--surface-2); }
 
+  /* ---------- Skills ---------- */
+  .skilllist { list-style: none; counter-reset: skill; padding: 0; margin: 26px 0 0; max-width: 640px; }
+  .skilllist li {
+    counter-increment: skill;
+    display: flex; align-items: baseline; gap: 18px;
+    font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 750; letter-spacing: -0.02em;
+    padding: 16px 0; border-bottom: 1px solid var(--line);
+  }
+  .skilllist li::before {
+    content: counter(skill, decimal-leading-zero);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .95rem; font-weight: 650; color: var(--forest);
+  }
+
   footer { padding: 48px 0 56px; color: var(--faint); font-size: .82rem; }
   footer .wrap { border-top: 1px solid var(--line); padding-top: 24px; }
 </style>
+</head>
+<body>
 
 <!-- ================= HERO ================= -->
 <header class="hero">
@@ -584,25 +547,12 @@
   <div class="wrap">
     <span class="eyebrow blaze-blue">Curriculum</span>
     <h2>Skills we'll be practicing</h2>
-    <p class="lede">Every serious ride has a skills curriculum. Ours has four modules, and yes, they are in priority order.</p>
-    <div class="cardgrid">
-      <div class="card">
-        <h3>1. Don't crash</h3>
-        <p>Hold your line, brake before the corner, call the holes. The pavement always wins the argument.</p>
-      </div>
-      <div class="card">
-        <h3>2. Don't blow up the ride</h3>
-        <p>If you can't hold a conversation, you're going too hard. Nobody gets a trophy at the top of Perkins, and everybody suffers on 9W if you cracked at mile 25.</p>
-      </div>
-      <div class="card">
-        <h3>3. Have fun</h3>
-        <p>Mandatory. There will be a pop quiz at the 9W Market, administered in pastry form.</p>
-      </div>
-      <div class="card">
-        <h3>4. Good vibes</h3>
-        <p>The advanced elective: pulls taken cheerfully, snacks shared freely, flat tires fixed as a group activity.</p>
-      </div>
-    </div>
+    <ol class="skilllist">
+      <li>Don't crash</li>
+      <li>Don't blow up the ride</li>
+      <li>Have fun</li>
+      <li>Good vibes</li>
+    </ol>
   </div>
 </section>
 
@@ -742,3 +692,5 @@
   document.getElementById('svNext').addEventListener('click', function () { step(1); });
 })();
 </script>
+</body>
+</html>
