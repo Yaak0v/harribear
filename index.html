@@ -204,6 +204,16 @@
     font-size: .95rem; font-weight: 650; color: var(--forest);
   }
 
+  /* ---------- Weather strip ---------- */
+  .wxstrip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .wxcard { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); }
+  .wxcard .place { font-size: .82rem; font-weight: 650; margin: 0 0 1px; }
+  .wxcard .when { font-size: .72rem; color: var(--blaze); font-weight: 700; letter-spacing: .05em; }
+  .wxcard .temp { font-size: 1.55rem; font-weight: 750; letter-spacing: -0.02em; margin: 6px 0 2px; }
+  .wxcard .temp small { font-size: .72rem; font-weight: 500; color: var(--faint); letter-spacing: 0; }
+  .wxcard .wind { font-size: .78rem; color: var(--muted); }
+  .wxcard .wind .arrow { display: inline-block; font-weight: 700; color: var(--river); }
+
   footer { padding: 48px 0 56px; color: var(--faint); font-size: .82rem; }
   footer .wrap { border-top: 1px solid var(--line); padding-top: 24px; }
 </style>
@@ -316,6 +326,28 @@
         <span><span class="dot stop"></span>Planned stop</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ================= WEATHER ================= -->
+<section id="weather">
+  <div class="wrap">
+    <span class="eyebrow blaze-blue">Ride forecast</span>
+    <h2>Saturday's weather, where you'll be</h2>
+    <p class="lede">Not the forecast for a town: the forecast for each point on the route at the time we'll actually be there, from a grade-aware pace model (9:00 roll-out, endurance pace, real stop time). Zero percent rain chance all day, clear skies, and the north wind means a tailwind nearly all the way home down 9W. Arrows show where the wind is blowing toward.</p>
+    <div class="wxstrip">
+      <div class="wxcard"><div class="when mono">MI 0 &middot; 9:00 am</div><p class="place">Peekskill roll-out</p><div class="temp">71&deg;<small> feels 72&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(178deg)">&uarr;</span> 6 mph headwind, gusts 10</div></div>
+      <div class="wxcard"><div class="when mono">MI 10.5 &middot; 10:15 am</div><p class="place">Perkins summit</p><div class="temp">68&deg;<small> feels 69&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(192deg)">&uarr;</span> 4 mph tailwind, gusts 6</div></div>
+      <div class="wxcard"><div class="when mono">MI 18 &middot; 10:50 am</div><p class="place">Tiorati / lakes</p><div class="temp">71&deg;<small> feels 75&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(217deg)">&uarr;</span> 3 mph tailwind, gusts 6</div></div>
+      <div class="wxcard"><div class="when mono">MI 24 &middot; 11:20 am</div><p class="place">Lake Welch</p><div class="temp">71&deg;<small> feels 74&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(231deg)">&uarr;</span> 4 mph crosswind, gusts 6</div></div>
+      <div class="wxcard"><div class="when mono">MI 35 &middot; 12:22 pm</div><p class="place">Back at the river</p><div class="temp">77&deg;<small> feels 84&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(228deg)">&uarr;</span> 3 mph crosswind, gusts 5</div></div>
+      <div class="wxcard"><div class="when mono">MI 44 &middot; 1:18 pm</div><p class="place">Hook Mtn gravel</p><div class="temp">79&deg;<small> feels 84&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(175deg)">&uarr;</span> 5 mph tailwind, gusts 6</div></div>
+      <div class="wxcard"><div class="when mono">MI 49.4 &middot; 1:44 pm</div><p class="place">Nyack lunch</p><div class="temp">82&deg;<small> feels 84&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(178deg)">&uarr;</span> 7 mph tailwind, gusts 10</div></div>
+      <div class="wxcard"><div class="when mono">MI 55.3 &middot; 2:42 pm</div><p class="place">9W Market</p><div class="temp">83&deg;<small> feels 83&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(180deg)">&uarr;</span> 8 mph tailwind, gusts 12</div></div>
+      <div class="wxcard"><div class="when mono">MI 62 &middot; 3:34 pm</div><p class="place">9W ridge</p><div class="temp">83&deg;<small> feels 81&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(171deg)">&uarr;</span> 9 mph tailwind, gusts 13</div></div>
+      <div class="wxcard"><div class="when mono">MI 68.4 &middot; 4:00 pm</div><p class="place">Strictly finish</p><div class="temp">84&deg;<small> feels 83&deg;</small></div><div class="wind"><span class="arrow" style="transform:rotate(180deg)">&uarr;</span> 8 mph crosswind, gusts 12</div></div>
+    </div>
+    <p class="sub" style="margin-top:12px;">Source: Open-Meteo, pulled Thursday Aug 14, 2:00 pm. Numbers will sharpen; refreshing Friday evening.</p>
   </div>
 </section>
 
